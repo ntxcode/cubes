@@ -11,6 +11,7 @@ module Cubes
     def initialize(options = {})
       @base_url = options[:base_url] || DEFAULT_BASE_URL
       @conn = Faraday.new(url: @base_url, headers: { 'Content-Type' => 'application/json' }) do |config|
+        config.use Cubes::Middleware::RaiseError
         config.adapter :net_http_persistent
       end
     end
