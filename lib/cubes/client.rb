@@ -36,6 +36,14 @@ module Cubes
       request.get('cubes')
     end
 
+    # Instantiating a cube api
+    #
+    # @param name [String]
+    # @return [Cubes::Cube]
+    def cube(name)
+      Cubes::Cube.new(name, @conn)
+    end
+
     private
 
     # @return [Cubes::Request]

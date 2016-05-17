@@ -1,6 +1,7 @@
 require_relative 'cubes/version'
 require_relative 'cubes/client'
 require_relative 'cubes/request'
+require_relative 'cubes/cube'
 
 module Cubes
   class << self
