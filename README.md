@@ -70,7 +70,7 @@ cube.report(report_data, cut: 'date:2016')
 ```
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/cubes.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ntxcode/cubes.
 
 ## License
 
