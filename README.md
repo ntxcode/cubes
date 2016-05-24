@@ -1,4 +1,5 @@
 # Cubes
+[![Build Status](https://travis-ci.org/ntxcode/cubes.png)](https://travis-ci.org/ntxcode/cubes)
 
 A wrapper for [Cubes OLAP Server](https://github.com/DataBrewery/cubes).
 
