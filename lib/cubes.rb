@@ -14,7 +14,7 @@ module Cubes
     end
 
     def cube(name)
-      @client.cube(name)
+      client.cube(name)
     end
   end
 end
