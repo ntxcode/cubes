@@ -32,9 +32,11 @@ module Cubes
 
     # List all cubes
     #
-    # @return [Array]
+    # @return [Array[Cubes::Cube]]
     def cubes
-      request.get('cubes')
+      request.get('cubes').map do |cube|
+        Cubes::Cube.new(cube['name'], @conn)
+      end
     end
 
     # Instantiating a cube api

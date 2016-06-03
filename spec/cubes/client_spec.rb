@@ -42,17 +42,28 @@ describe Cubes::Client do
     let(:cubes) do
       [
         {
-          'category' => nil,
           'info' => {},
           'name' => 'sales',
           'label' => 'Sales'
+        },
+        {
+            'info' => {},
+            'name' => 'consumers',
+            'label' => 'Consumers'
         }
       ]
     end
 
-    before { stub_request(:get, "#{base_url}/cubes").to_return(body: cubes.to_json) }
+    before do
+      stub_request(:get, "#{base_url}/cubes").to_return(body: cubes.to_json)
+      cubes.each do |cube|
+        stub_request(:get, "#{base_url}/cube/#{cube['name']}/model").to_return(body: cube.to_json)
+      end
+    end
 
-    it { expect(subject.cubes).to eq(cubes) }
+    it { expect(subject.cubes).to be_a Array }
+    it { expect(subject.cubes).to all(be_a Cubes::Cube)  }
+    it { expect(subject.cubes.map(&:model)).to eq(cubes) }
   end
 
   describe '#cube' do
